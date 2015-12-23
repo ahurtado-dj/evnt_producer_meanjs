@@ -1,0 +1,34 @@
+<section ng-controller="CiudadesController" ng-init="findOne()">
+  <!--
+  <div class="page-header">
+    <h1 ng-bind="ciudad.title"></h1>
+  </div>
+-->
+
+  <form novalidate>
+    <formly-form model="ciudad" fields="formFields">
+    </formly-form>
+  </form>
+
+
+  <div class="pull-right" ng-show="authentication.user._id == ciudad.user._id">
+    <a class="btn btn-primary" ui-sref="ciudades.edit({ciudadId: ciudad._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+
+  <!--
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="ciudad.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="ciudad.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="ciudad.content"></p>
+  -->
+</section>

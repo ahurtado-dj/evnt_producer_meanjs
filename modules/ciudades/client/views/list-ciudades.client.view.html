@@ -1,0 +1,78 @@
+<section ng-controller="CiudadesController" ng-init="find()">
+  <div class="page-header">
+    <h1>Ciudades</h1>
+  </div>
+
+  <div>
+    <a type="button" class="btn btn-success btn-primary" ui-sref="ciudades.create()">
+      <i class="glyphicon glyphicon-open"></i> Nuevo
+    </a>
+  </div>
+  <!--
+  <div>
+    <table ng-table="tableParams" show-filter="true">
+        <tr ng-repeat="ciudad in $data">
+            <td data-title="'Name'" sortable="'name'" filter="{ 'nombre': 'text' }">{{ciudad.nombre}}</td>
+            <td>
+                <div class="table-actions">
+            <td>
+               <div class="table-actions">
+                    <a class="btn btn-default" title="View" href="/ciudades/{{ciudad._id}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a class="btn btn-default" title="Edit" href="/ciudades/{{ciudad._id}}/edit">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                    <a class="btn btn-danger" title="Remove" ng-really-message="Are you sure ?" ng-really-click="remove(ciudad)" item="ciudad">
+                      <span class="glyphicon glyphicon-remove-circle"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+  </div>
+-->
+
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>id</th>
+      <th>nombre</th>
+      <th>rj_codigo</th>
+      <th>actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-ng-repeat="ciudad in ciudades">
+      <td>
+        <span>{{ $index + 1 }}</span>
+      </td>
+      <td>
+        <span> {{ ciudad.nombre || '' }}</span>
+      </td>
+      <td>
+        <span> {{ ciudad.rj_codigo || '' }}</span>
+      </td>
+      <td>
+          <div  >
+            <a class="btn btn-primary" ui-sref="ciudades.edit({ciudadId: ciudad._id})">
+              <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-primary" ng-really-message="Are you sure ?" ng-really-click="remove(ciudade)"  item="ciudad">
+              <i class="glyphicon glyphicon-trash"></i>
+            </a>
+          </div>
+      </td>
+
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+
+  <div class="alert alert-warning text-center" ng-if="ciudades.$resolved && !ciudades.length">
+    No ciudades yet, why don't you <a ui-sref="ciudades.create">create one</a>?
+  </div>
+</section>

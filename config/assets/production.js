@@ -16,6 +16,9 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.min.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.min.js',
         'public/lib/angular-file-upload/angular-file-upload.min.js',
+        'public/lib/api-check/dist/api-check.min.js',
+        'public/lib/angular-formly/dist/formly.min.js',
+        'public/lib/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.min.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
       ]
     },

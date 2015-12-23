@@ -16,6 +16,9 @@ module.exports = {
         'public/lib/angular-ui-utils/ui-utils.js',
         'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
         'public/lib/angular-file-upload/angular-file-upload.js',
+        'public/lib/api-check/dist/api-check.js',
+        'public/lib/angular-formly/dist/formly.js',
+        'public/lib/angular-formly-templates-bootstrap/dist/angular-formly-templates-bootstrap.js',
         'public/lib/owasp-password-strength-test/owasp-password-strength-test.js'
       ],
       tests: ['public/lib/angular-mocks/angular-mocks.js']

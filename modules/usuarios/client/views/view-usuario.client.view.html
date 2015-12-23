@@ -1,0 +1,32 @@
+<section ng-controller="UsuariosController" ng-init="findOne()">
+  <!--
+  <div class="page-header">
+    <h1 ng-bind="usuario.title"></h1>
+  </div>
+  -->
+
+  <div class="pull-right" ng-show="authentication.user._id == usuario.user._id">
+    <a class="btn btn-primary" ui-sref="usuarios.edit({articleId: usuario._id})">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn btn-primary" ng-click="remove();">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+
+  <form novalidate>
+    <formly-form model="usuario" fields="formFields">
+    </formly-form>
+  </form>
+  <!--
+  <small>
+    <em class="text-muted">
+      Posted on
+      <span ng-bind="usuario.created | date:'mediumDate'"></span>
+      by
+      <span ng-bind="usuario.user.displayName"></span>
+    </em>
+  </small>
+  <p class="lead" ng-bind="usuario.content"></p>
+  -->
+</section>

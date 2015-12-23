@@ -1,0 +1,70 @@
+<section ng-controller="UsuariosController" ng-init="find()">
+  <div class="page-header">
+    <h1>Usuarios</h1>
+  </div>
+
+  <div>
+    <a type="button" class="btn btn-success btn-primary" ui-sref="usuarios.create()">
+      <i class="glyphicon glyphicon-open"></i> Nuevo
+    </a>
+  </div>
+
+
+  <div class="container">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>nombre</th>
+        <th>rj_codigo</th>
+        <th>actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr data-ng-repeat="usuario in usuarios">
+        <td>
+          <span>{{ $index + 1 }}</span>
+        </td>
+        <td>
+          <span> {{ usuario.nombre || '' }}</span>
+        </td>
+        <td>
+          <span> {{ usuario.documento_nro || '' }}</span>
+        </td>
+        <td>
+            <div  >
+              <a class="btn btn-primary" ui-sref="usuarios.edit({usuarioId: usuario._id})">
+                <i class="glyphicon glyphicon-edit"></i>
+              </a>
+              <a class="btn btn-primary" ng-really-message="Are you sure ?" ng-really-click="remove(usuario)"  item="usuario">
+                <i class="glyphicon glyphicon-trash"></i>
+              </a>
+            </div>
+        </td>
+
+
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+
+  <!--
+  <div class="list-group">
+    <a ng-repeat="usuario in usuarios" ui-sref="usuarios.view({articleId: usuario._id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="usuario.created | date:'mediumDate'"></span>
+        by
+        <span ng-bind="usuario.user.displayName"></span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="usuario.title"></h4>
+      <p class="list-group-item-text" ng-bind="usuario.content"></p>
+    </a>
+  </div>
+-->
+  <div class="alert alert-warning text-center" ng-if="usuarios.$resolved && !usuarios.length">
+    No usuarios yet, why don't you <a ui-sref="usuarios.create">create one</a>?
+  </div>
+</section>

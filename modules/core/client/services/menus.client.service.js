@@ -53,6 +53,22 @@ angular.module('core').service('Menus', [
       return this.menus[menuId];
     };
 
+
+    // #ADD: Menu Item exist??
+		this.menuItemExists = function(menuId, menuItemState ){
+			var result = false,
+					i=0,
+					items = this.menus[menuId].items;
+
+			for(i=0; i < items.length; i++){
+				if(items[i].state ===  menuItemState ){
+					result = true;
+				}
+			}
+
+			return result;
+		};
+
     // Add new menu object by menu id
     this.addMenu = function (menuId, options) {
       options = options || {};
@@ -83,6 +99,11 @@ angular.module('core').service('Menus', [
 
       // Validate that the menu exists
       this.validateMenuExistance(menuId);
+
+      // #ADD: si el item existe ?? (validar)
+      if(this.menuItemExists(menuId, options.state)){
+      		return;
+      }
 
       // Push new menu item
       this.menus[menuId].items.push({
